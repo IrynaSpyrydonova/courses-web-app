@@ -14,7 +14,19 @@
 </head>
 
 <body>
-
+  <div class="wrapper">
+    <form id='save-form'>
+        <input id='course-name' name='courseName' placeholder='Course name' />
+        <button id='save-button' class="btn">Save new course</button>
+        <button id='edit-button' class="btn">Edit course</button>
+      </form>
+      <div class="details">
+        <details open>
+          <summary class='btn'>Open a list of courses</summary>
+        </details>
+        <div id='files-list-container'></div>
+      </div>
+</div>
 </body>
 
 </html>
