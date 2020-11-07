@@ -60,12 +60,14 @@ input {
   padding: 10px 14px;
 }
 
-.course{
+.course,
+.delete {
   font-size: 19px;
   padding: 10px 14px;
   background:#AD85BA;
   margin: 10px;
 }
+
 
 li{
   list-style: none;
