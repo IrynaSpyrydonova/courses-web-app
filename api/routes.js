@@ -12,5 +12,6 @@ router.use((req, res, next) => {
 // write your routes
 router.get('/courses', controllers.getListOfCourses);
 router.post('/courses', controllers.saveCourse);
+router.put('/courses/:id', controllers.editFile);
 
 module.exports = router;

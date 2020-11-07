@@ -5,11 +5,11 @@
   },
   {
     "id": 2,
-    "name": "helli"
+    "name": "world"
   },
   {
     "id": 3,
-    "name": "yea"
+    "name": "javascript"
   },
   {
     "id": 4,
@@ -17,6 +17,14 @@
   },
   {
     "id": 5,
-    "name": "New Course"
+    "name": "edited course"
+  },
+  {
+    "id": 6,
+    "name": "HTML"
+  },
+  {
+    "id": 7,
+    "name": "CSS"
   }
 ]
