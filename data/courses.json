@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "hello"
+  },
+  {
+    "id": 2,
+    "name": "world"
+  },
+  {
+    "id": 3,
+    "name": "javascript"
+  },
+  {
+    "id": 4,
+    "name": "new Course"
+  },
+  {
+    "id": 5,
+    "name": "edited course"
+  },
+  {
+    "id": 6,
+    "name": "HTML"
+  },
+  {
+    "id": 7,
+    "name": "CSS"
+  }
+]

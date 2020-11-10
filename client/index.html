@@ -6,7 +6,9 @@
   <title>courses web-app</title>
 
   <link rel="stylesheet" href="./style.css">
-
+  <script src="./app/action.js"></script>
+  <script src="./app/views.js"></script>
+  <script src="https://kit.fontawesome.com/1f1918c2d9.js" crossorigin="anonymous"></script>
   <script type="module">
     import { init } from './app/init.js'
     window.onload = init;
@@ -14,7 +16,20 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <form id='save-form'>
+        <input id='course-name' name='courseName' placeholder='Course name' />
+        <button id='save-button' class="btn">Save new course</button>
 
+      </form>
+      <div class="details">
+        <details open>
+          <summary class='btn'>Open a list of courses</summary>
+          <div id='files-list-container'></div>
+        </details>
+        
+      </div>
+</div>
 </body>
 
 </html>
