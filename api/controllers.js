@@ -13,4 +13,19 @@ const controllers = {
   }
 };
 
+//GET Method 
+
+listFiles:(req,res , next) =>{
+  console.log('get files')
+  fs.readFile(DATA_DIR, 'utf8', (err, data) =>{
+    console.log('list files')
+    if(err)
+    next(err);
+    return;
+  });
+
+  res.send(JSON.parse(data));
+},
+
+
 module.exports = controllers;
