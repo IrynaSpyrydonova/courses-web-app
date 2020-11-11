@@ -57,12 +57,21 @@ h1{
 }
 
 h2{
+  color: #3c0596;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 900;
+  text-shadow: rgba(255, 255, 255, 0.5) 1px 2px 1px;
+}
+
+.details-header {
+  display: block;
   color: #874ce6;
   -webkit-background-clip: text;
   background-clip: text;
-  /* color: transparent; */
   font-weight: 900;
   text-shadow: rgba(255, 255, 255, 0.5) 1px 2px 1px;
+  margin-bottom: 10px;
 }
 
 .fa-graduation-cap{
@@ -330,6 +339,7 @@ p, .save {
   font-weight: 500;
   text-align: center;
 }
+  
 
 .save{
   display: none;

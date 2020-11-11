@@ -21,28 +21,50 @@ const renderCourseList = (coursesArr) => {
         nameHeader.innerHTML = course.name;
         wrapper.appendChild(nameHeader);
 
-        if (!course.details === ''|| !course.details === 'undefined'){
+        if (course.details === '' || course.details === undefined || course.details === null){
+          const detailsHeader = document.createElement('h3');
+          detailsHeader.classList.add('details-header');
+          detailsHeader.innerHTML = 'Details: ';
           const details = document.createElement('p');
-          details.classList.add('details');
-          details.innerHTML = course.details;
+          details.innerHTML = '';
+          nameDiv.appendChild(detailsHeader);
           nameDiv.appendChild(details);
 
+        } else {
+          const detailsHeader = document.createElement('h3');
+          detailsHeader.classList.add('details-header');
+          detailsHeader.innerHTML = 'Details: ';
+          const details = document.createElement('p');
+          details.innerHTML = course.details;
+          nameDiv.appendChild(detailsHeader);
+          nameDiv.appendChild(details);
         }
         
         const codeDiv = document.createElement('div');
         codeDiv.classList.add('code');
         nameDiv.appendChild(codeDiv);
         
-        if(!course.code === '' || !course.place === ''|| !course.code === 'undefined'|| !course.place === 'undefined'){
+        if(course.code === '' || course.code === undefined || course.code === null){
+          const code = document.createElement('p');
+          code.innerHTML = `<i class="fas fa-code"></i> <span></span>`;
+          codeDiv.appendChild(code);
+        }else{
           const code = document.createElement('p');
           code.innerHTML = `<i class="fas fa-code"></i> <span>${course.code}</span>`;
           codeDiv.appendChild(code);
-  
+        }
+        
+        
+        if(course.place === '' || course.place === undefined || course.place === null) {
+          const place = document.createElement('p');
+          place.innerHTML = ``;
+          codeDiv.appendChild(place);
+        }else{
           const place = document.createElement('p');
           place.innerHTML = `${course.place}`;
           codeDiv.appendChild(place);
         }
-        
+         
         const iconsDiv = document.createElement('div');
         iconsDiv.classList.add('icons');
         loadButton.appendChild(iconsDiv);
