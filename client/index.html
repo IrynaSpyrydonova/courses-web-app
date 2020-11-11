@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <!-- <div class="wrapper">
     <form id='save-form'>
         <input id='course-name' name='courseName' placeholder='Course name' />
         <button id='save-button' class="btn">Save new course</button>
@@ -29,7 +29,50 @@
         </details>
         
       </div>
-</div>
+</div> -->
+
+    <header>
+      <div class="header">
+        <h1><i class="fas fa-graduation-cap"></i> Your Course to Success </h1>
+      </div>
+    </header>
+    <main>
+      <div class="form-wrapper">
+        <div class="img">
+          <img src="./people-2564430_1280.jpg" alt="">
+        </div>
+        
+        <form id='save-form'>
+          <input id='course-name' name='courseName' placeholder='Course name' />
+          <input id='course-code' name='courseCode' placeholder='Course code' />
+          <input id='course-place' name='coursePlace' placeholder='Course place' />
+          <textarea id='course-details' name='courseDetails' placeholder='Type course details'></textarea>
+          <p class="error">Please fill the course name and details</p>
+          <p class="save">Your course has been saved</p>
+          <button id='save-button'>Save new course</button>
+        </form>
+      </div>
+      
+    <div class="details-wrapper">
+      <div class="details">
+        <details >
+          <summary class='btn'>Open a list of existing courses</summary>
+          <div id='files-list-container'></div>
+        </details>
+      </div>
+    </div>
+    
+    </main>
+    <footer>
+      <div class="footer-wrapper">
+          <p> &copy; Copyright Group 3 HYF  2020</p>
+          <div class="social">
+              <button class="unit"><i class="fab fa-facebook fa-2x"></i></button>
+              <button class="unit"><i class="fab fa-twitter fa-2x"></i></button>
+              <button class="unit"><i class="fab fa-instagram-square fa-2x"></i></button>
+          </div>
+      </div>
+    </footer>
 </body>
 
 </html>

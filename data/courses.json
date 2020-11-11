@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "hello"
+    "name": "Java"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
   },
   {
     "id": 4,
-    "name": "new Course"
+    "name": "HTML3"
   },
   {
     "id": 5,
@@ -25,6 +25,13 @@
   },
   {
     "id": 7,
-    "name": "CSS"
+    "name": "CSS3"
+  },
+  {
+    "id": 8,
+    "name": "Ruby",
+    "code": "",
+    "place": "",
+    "details": "Best course to improve your skills"
   }
 ]

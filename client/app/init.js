@@ -8,7 +8,26 @@ export const init = async () => {
 document.getElementById('save-button')
   .addEventListener('click', (e) => {
     e.preventDefault();
-    const courseNameToSave = e.target.form.courseName.value;
-    console.log(courseNameToSave);
-    saveCourse(courseNameToSave);
+    const name = document.querySelector('#course-name');
+    const details = document.querySelector('#course-details');
+    const code = document.querySelector('#course-code');
+    const place = document.querySelector('#course-place');
+    if (name.value.length === 0 || details.value.length === 0){
+      document.querySelector('.error').style.display= 'inline-block';
+    } else {
+      document.querySelector('.error').style.display= 'none';
+
+      const courseToSave = {
+        name: name.value,
+        code: code.value,
+        place: place.value,
+        details: details.value
+      }
+      console.log(courseToSave);
+      saveCourse(courseToSave);
+      name.value = '';
+      details.value = '';
+      code.value ='';
+      place.value = '';
+    }
   });

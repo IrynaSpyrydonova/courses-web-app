@@ -33,9 +33,12 @@ const controllers = {
       let courses = JSON.parse(data);
       console.log(courses);
       const course = {
-          id: courses.length + 1,
-          name: req.body.courseName
-      };
+        id: courses.length + 1,
+        name: req.body.name,
+        code: req.body.code,
+        place: req.body.place,
+        details:req.body.details
+    };
       courses.push(course);
       res.send(course);
       let newData = JSON.stringify(courses, null, 2);
