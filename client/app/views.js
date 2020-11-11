@@ -16,6 +16,12 @@ const renderCourseList = (coursesArr) => {
         editButton.style.float="right";
         editButton.classList.add('btn', 'delete');
         editButton.onclick = () => handlers.modifyCourse(courseName);
+
+        const detailsButton = document.createElement('button'); 
+        detailsButton.innerHTML = 'details';
+        detailsButton.style.float="right";
+        detailsButton.classList.add('btn', 'delete');
+        detailsButton.onclick = () => handlers.getDetails(courseName);
         
         const li = document.createElement('li');
         li.appendChild(loadButton);

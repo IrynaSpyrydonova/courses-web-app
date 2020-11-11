@@ -9,9 +9,13 @@ router.use((req, res, next) => {
     next();
   }); 
 
+
+
 // write your routes
+router.get('/courses/:id', controllers.getCourseById);
 router.get('/courses', controllers.getListOfCourses);
 router.post('/courses', controllers.saveCourse);
 router.put('/courses/:id', controllers.editFile);
+
 
 module.exports = router;

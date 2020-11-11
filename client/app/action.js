@@ -61,5 +61,14 @@ const saveCourse = (courseName) => {
     } catch (error) {
       console.log(error);
     }
+  },
+
+  getDetails:async (course) =>{ 
+  try {
+    const res = await fetch("/api/courses/" + course.id);
+    const data = await res.json();
+  } catch (error) {
+    
   }
 }
+}   

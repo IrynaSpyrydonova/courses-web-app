@@ -74,7 +74,36 @@ editFile: (req, res, next) => {
         });
     })
 },
+//GET course by ID Method 
 
+getCourseById:(req,res, next) =>{
+  fs.readFile(DATA_DIR, 'utf8', (err, data) =>{
+    let courses = JSON.parse(data);
+  const course = courses.find(c => c.id === parseInt(req.params.id));
+  if (!course) res.status (404).send('The course with the given ID was not found.')
+  res.send(course);
+    if(err)
+    next(err);
+    return;
+  });
+ },
+
+ //GET Method 
+
+listFiles:(req,res , next) =>{
+  console.log('get files')
+  fs.readFile(DATA_DIR, 'utf8', (err, data) =>{
+    console.log('list files')
+    if(err)
+    next(err);
+    return;
+  });
+
+  res.send(JSON.parse(data));
+},
 };
+
+
+
 
 module.exports = controllers;
