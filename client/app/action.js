@@ -64,10 +64,11 @@ const saveCourse = (course) => {
     }
   },
 
-  getDetails:async (course) =>{ 
+  getDetails:async (course) =>{  
   try {
     const res = await fetch("/api/courses/" + course.id);
     const data = await res.json();
+    document.querySelector(`[data-id="${data.id}"]`).classList.toggle('display');
   } catch (error) {
     
   }

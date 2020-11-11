@@ -26,7 +26,9 @@ const renderCourseList = (coursesArr) => {
           detailsHeader.classList.add('details-header');
           detailsHeader.innerHTML = 'Details: ';
           const details = document.createElement('p');
-          details.innerHTML = '';
+          details.classList.add('detailsInfo', 'display');
+          details.setAttribute('data-id', course.id);
+          details.innerHTML = 'Details for the current course are not provided';
           nameDiv.appendChild(detailsHeader);
           nameDiv.appendChild(details);
 
@@ -35,6 +37,8 @@ const renderCourseList = (coursesArr) => {
           detailsHeader.classList.add('details-header');
           detailsHeader.innerHTML = 'Details: ';
           const details = document.createElement('p');
+          details.classList.add('detailsInfo', 'display');
+          details.setAttribute('data-id', course.id);
           details.innerHTML = course.details;
           nameDiv.appendChild(detailsHeader);
           nameDiv.appendChild(details);
@@ -73,8 +77,8 @@ const renderCourseList = (coursesArr) => {
         detailsButton.classList.add('icon');
         detailsButton.innerHTML = `<i class="fas fa-info-circle"></i>`;
         iconsDiv.appendChild(detailsButton);
-        detailsButton.onclick = () => handlers.getDetails(course);
-
+        detailsButton.onclick = () => handlers.getDetails(course)
+        
         const deleteButton = document.createElement('div');
         deleteButton.classList.add('icon');
         deleteButton.innerHTML = `<i class="fas fa-trash-alt"></i>`;

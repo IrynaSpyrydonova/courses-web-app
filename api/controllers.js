@@ -33,7 +33,7 @@ const controllers = {
       let courses = JSON.parse(data);
       console.log(courses);
       const course = {
-        id: courses.length + 1,
+        id: req.body.id,
         name: req.body.name,
         code: req.body.code,
         place: req.body.place,

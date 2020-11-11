@@ -9,7 +9,7 @@
   },
   {
     "id": 3,
-    "name": "javascript"
+    "name": "New Java Script"
   },
   {
     "id": 4,
@@ -54,5 +54,12 @@
     "code": "Cs3456",
     "place": "Amsterdam",
     "details": "- Css3\n-SASS"
+  },
+  {
+    "id": 12,
+    "name": "SASS",
+    "code": "Sa3456",
+    "place": "Berlin",
+    "details": "Impress everyone with your skills"
   }
 ]

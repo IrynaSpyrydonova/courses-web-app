@@ -4,7 +4,7 @@ export const init = async () => {
   console.log(data);
   renderCourseList(data)
 };
-
+let nextId = 13;
 document.getElementById('save-button')
   .addEventListener('click', (e) => {
     e.preventDefault();
@@ -16,13 +16,16 @@ document.getElementById('save-button')
       document.querySelector('.error').style.display= 'inline-block';
     } else {
       document.querySelector('.error').style.display= 'none';
-
       const courseToSave = {
+        id: nextId,
         name: name.value,
         code: code.value,
         place: place.value,
         details: details.value
       }
+
+      nextId++;
+      console.log(nextId);
       console.log(courseToSave);
       saveCourse(courseToSave);
       name.value = '';
@@ -31,3 +34,19 @@ document.getElementById('save-button')
       place.value = '';
     }
   });
+
+  document.querySelector('details').addEventListener('toggle', (e)=>{
+    if(document.querySelector('details').open === true){
+      window.scroll({
+        top: 500,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  })
+
+
+
+
+ 
+
