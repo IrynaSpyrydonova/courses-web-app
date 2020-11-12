@@ -1,30 +1,75 @@
-[
-  {
-    "id": 1,
-    "name": "hello"
-  },
-  {
-    "id": 2,
-    "name": "world"
-  },
-  {
-    "id": 3,
-    "name": "javascript"
-  },
-  {
-    "id": 4,
-    "name": "new Course"
-  },
-  {
-    "id": 5,
-    "name": "edited course"
-  },
-  {
-    "id": 6,
-    "name": "HTML"
-  },
-  {
-    "id": 7,
-    "name": "CSS"
-  }
-]
+{
+  "nextId": 14,
+  "courses": [
+    {
+      "id": 1,
+      "name": "Java"
+    },
+    {
+      "id": 2,
+      "name": "world"
+    },
+    {
+      "id": 3,
+      "name": "New Java Script"
+    },
+    {
+      "id": 4,
+      "name": "HTML3"
+    },
+    {
+      "id": 5,
+      "name": "edited course"
+    },
+    {
+      "id": 6,
+      "name": "HTML"
+    },
+    {
+      "id": 7,
+      "name": "CSS3"
+    },
+    {
+      "id": 8,
+      "name": "Ruby",
+      "code": "",
+      "place": "",
+      "details": "Best course to improve your skills"
+    },
+    {
+      "id": 9,
+      "name": "Java Script",
+      "code": "JS3456",
+      "place": "Brussels",
+      "details": "Best course to improve your skills"
+    },
+    {
+      "id": 10,
+      "name": "JAVA",
+      "code": "",
+      "place": "",
+      "details": "Best course to train your Java skills"
+    },
+    {
+      "id": 11,
+      "name": "CSS",
+      "code": "Cs3456",
+      "place": "Amsterdam",
+      "details": "- Css3\n-SASS"
+    },
+    {
+      "id": 12,
+      "name": "SASS",
+      "code": "Sa3456",
+      "place": "Berlin",
+      "details": "Impress everyone with your skills"
+    },
+    {
+      "id": 13,
+      "name": "Vue",
+      "code": "R4567",
+      "place": "KYIV",
+      "details": "Lets code, like professional programmers "
+    }
+  ]
+}

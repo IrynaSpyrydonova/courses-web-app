@@ -1,7 +1,7 @@
-const saveCourse = (courseName) => {
+const saveCourse = (course) => {
     fetch('api/courses/', {
       method: 'POST',
-      body: JSON.stringify({courseName}),
+      body: JSON.stringify(course),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -12,9 +12,10 @@ const saveCourse = (courseName) => {
         }
         return res.json();
       })
-      .then(courseList => {
-        console.log(courseList);
-        alert('your changes are saved');
+      .then(courseData => {
+        console.log(courseData);
+        document.querySelector('.save').style.display= 'inline-block';
+        setTimeout(function(){ document.querySelector('.save').style.display= 'none'; }, 3000);
         return fetch('api/courses');
       })
       .then(response => response.json())
@@ -36,7 +37,7 @@ const saveCourse = (courseName) => {
       }
       const res = await fetch("/api/courses");
       const data = await res.json();
-      const exists = data.find((data) => data.name === newCourseName);
+      const exists = data.courses.find((data) => data.name === newCourseName);
       if (exists) {
         alert(
           `The course "${newCourseName}" already exists.`
@@ -63,10 +64,11 @@ const saveCourse = (courseName) => {
     }
   },
 
-  getDetails:async (course) =>{ 
+  getDetails:async (course) =>{  
   try {
     const res = await fetch("/api/courses/" + course.id);
     const data = await res.json();
+    document.querySelector(`[data-id="${data.id}"]`).classList.toggle('display');
   } catch (error) {
     
   }
