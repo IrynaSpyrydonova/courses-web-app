@@ -4,7 +4,7 @@ export const init = async () => {
   console.log(data);
   renderCourseList(data)
 };
-let nextId = 13;
+
 document.getElementById('save-button')
   .addEventListener('click', (e) => {
     e.preventDefault();
@@ -17,15 +17,12 @@ document.getElementById('save-button')
     } else {
       document.querySelector('.error').style.display= 'none';
       const courseToSave = {
-        id: nextId,
         name: name.value,
         code: code.value,
         place: place.value,
         details: details.value
       }
 
-      nextId++;
-      console.log(nextId);
       console.log(courseToSave);
       saveCourse(courseToSave);
       name.value = '';

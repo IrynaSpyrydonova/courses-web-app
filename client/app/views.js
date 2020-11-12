@@ -1,5 +1,5 @@
 const renderCourseList = (coursesArr) => {
-    const courseList = [...coursesArr]
+    const courseList = [...coursesArr.courses]
       .map(course => {
         console.log(course);
         const loadButton = document.createElement('div');

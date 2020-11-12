@@ -29,17 +29,20 @@ const controllers = {
 
   saveCourse: (req, res)=>{
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
+      console.log(data);
       if (err)  return res.status(500).send(err.message);
       let courses = JSON.parse(data);
       console.log(courses);
       const course = {
-        id: req.body.id,
+        id: courses.nextId,
         name: req.body.name,
         code: req.body.code,
         place: req.body.place,
         details:req.body.details
     };
-      courses.push(course);
+
+      courses.nextId++;
+      courses.courses.push(course);
       res.send(course);
       let newData = JSON.stringify(courses, null, 2);
       
@@ -60,7 +63,7 @@ editFile: (req, res, next) => {
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
         if (err) return res.status(500).send(err.message);
         let courses = JSON.parse(data);
-        const course =courses.find(c => c.id === parseInt(req.params.id));
+        const course =courses.courses.find(c => c.id === parseInt(req.params.id));
 
         if(!course) res.status(404).send('The course with the given ID was not found!');
         course.name=req.body.name;
@@ -82,7 +85,7 @@ editFile: (req, res, next) => {
 getCourseById:(req,res, next) =>{
   fs.readFile(DATA_DIR, 'utf8', (err, data) =>{
     let courses = JSON.parse(data);
-  const course = courses.find(c => c.id === parseInt(req.params.id));
+  const course = courses.courses.find(c => c.id === parseInt(req.params.id));
   if (!course) res.status (404).send('The course with the given ID was not found.')
   res.send(course);
     if(err)

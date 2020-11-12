@@ -37,7 +37,7 @@ const saveCourse = (course) => {
       }
       const res = await fetch("/api/courses");
       const data = await res.json();
-      const exists = data.find((data) => data.name === newCourseName);
+      const exists = data.courses.find((data) => data.name === newCourseName);
       if (exists) {
         alert(
           `The course "${newCourseName}" already exists.`
