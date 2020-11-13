@@ -3,14 +3,12 @@
 const fs = require('fs');
 const path = require('path');
 const Joi = require('joi');
+const tv4 = require('tv4');
 
 const config = require('../config');
 const DATA_DIR = path.join(__dirname, '..', 'data', 'courses.json');
 
-function validateCourse(course){
-  const schema = Joi.object({ name: Joi.string() .min(3) .required() });
-  return schema.validate(course);
-}
+const COURSES_SCHEMA = require('../data/courses-schema.json');
 
 const controllers = {
   hello: (req, res) => {
@@ -29,21 +27,31 @@ const controllers = {
 
   saveCourse: (req, res)=>{
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
-      console.log(data);
       if (err)  return res.status(500).send(err.message);
       let courses = JSON.parse(data);
-      console.log(courses);
-      const course = {
-        id: courses.nextId,
-        name: req.body.name,
-        code: req.body.code,
-        place: req.body.place,
-        details:req.body.details
-    };
 
+      const newCourse = req.body;
+      newCourse.id = courses.nextId;
       courses.nextId++;
-      courses.courses.push(course);
-      res.send(course);
+
+      const isValid = tv4.validate(newCourse, COURSES_SCHEMA)
+      console.log(isValid);
+
+      if (!isValid) {
+        const error = tv4.error
+        console.error(error)
+
+        res.status(400).json({
+          error: {
+            message: error.message,
+            dataPath: error.dataPath
+          }
+        })
+        return
+      }
+
+      courses.courses.push(newCourse);
+      res.send(newCourse);
       let newData = JSON.stringify(courses, null, 2);
       
       fs.writeFile(DATA_DIR, newData, (err) => {
@@ -57,16 +65,16 @@ const controllers = {
   //PUT METHOD
 editFile: (req, res, next) => {
   console.log('edit files')
-    const { error } = validateCourse(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
-
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
         if (err) return res.status(500).send(err.message);
+        
         let courses = JSON.parse(data);
         const course =courses.courses.find(c => c.id === parseInt(req.params.id));
-
         if(!course) res.status(404).send('The course with the given ID was not found!');
         course.name=req.body.name;
+        course.code= req.body.code,
+        course.place= req.body.place,
+        course.details=req.body.details
         res.send(course);
         
         let updatedData = JSON.stringify(courses, null, 2);

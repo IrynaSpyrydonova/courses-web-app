@@ -48,7 +48,7 @@ const renderCourseList = (coursesArr) => {
         codeDiv.classList.add('code');
         nameDiv.appendChild(codeDiv);
         
-        if(course.code === '' || course.code === undefined || course.code === null){
+        if(course.code === '' || course.code === undefined || course.code === null || course.code === 0){
           const code = document.createElement('p');
           code.innerHTML = `<i class="fas fa-code"></i> <span></span>`;
           codeDiv.appendChild(code);
@@ -89,7 +89,7 @@ const renderCourseList = (coursesArr) => {
         editButton.classList.add('icon');
         editButton.innerHTML = `<i class="fas fa-edit"></i>`;
         iconsDiv.appendChild(editButton);
-        editButton.onclick = () => handlers.modifyCourse(course);
+        editButton.onclick = () => handlers.modifyHandler(course);
 
         const li = document.createElement('li');
         li.appendChild(loadButton);

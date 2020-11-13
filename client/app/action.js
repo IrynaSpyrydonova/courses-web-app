@@ -28,37 +28,42 @@ const saveCourse = (course) => {
 
 
   const handlers = {
+  modifyHandler: (course)=>{
+      
+    document.getElementById("course-name").value=course.name
+    document.getElementById("course-name").setAttribute('dataId', course.id);
+    if(course.code!==undefined) {document.getElementById("course-code").value=course.code}
+    if(course.place!==undefined) {document.getElementById("course-place").value=course.place}
+    document.getElementById("course-details").value=course.details
+    document.getElementById("save-button").innerHTML="Save changes"
+    
+    document.documentElement.scrollTop = 0;
+  },
+
   modifyCourse: async (course) => {
     try {
-      const newCourseName=prompt("Please, enter the new course name.")
-      if (newCourseName.length <3) {
-        alert("Course name cannot be less than 3 characters!");
-        return;
-      }
-      const res = await fetch("/api/courses");
-      const data = await res.json();
-      const exists = data.courses.find((data) => data.name === newCourseName);
-      if (exists) {
-        alert(
-          `The course "${newCourseName}" already exists.`
-        );
-        return;
-      }
+      //reset save button
+      document.getElementById("save-button").innerHTML="Save new course"
+      //fetch method:put
       const resPut = await fetch("/api/courses/" + course.id, {
         method: "PUT",
         body: JSON.stringify({
-          name: newCourseName
+          name: course.name,        
+          code: course.code,
+          place: course.place,
+          details: course.details
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-
       const resNew = await fetch("/api/courses");
       const dataNew = await resNew.json();
       renderCourseList(dataNew);
+      //message to user
+      document.querySelector('.modify').style.display= 'inline-block';
+      setTimeout(function(){ document.querySelector('.modify').style.display= 'none'; }, 3000);
 
-      alert("changes saved");
     } catch (error) {
       console.log(error);
     }
