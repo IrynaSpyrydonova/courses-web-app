@@ -1,5 +1,5 @@
 {
-  "nextId": 14,
+  "nextId": 15,
   "courses": [
     {
       "id": 1,
@@ -70,6 +70,13 @@
       "code": "R4567",
       "place": "KYIV",
       "details": "Lets code, like professional programmers "
+    },
+    {
+      "name": "REACT",
+      "code": 0,
+      "place": "",
+      "details": "React is an open-source, front end, JavaScript library for building user interfaces or UI components",
+      "id": 14
     }
   ]
 }

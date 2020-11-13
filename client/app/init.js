@@ -11,19 +11,22 @@ document.getElementById('save-button')
     const name = document.querySelector('#course-name');
     const details = document.querySelector('#course-details');
     const code = document.querySelector('#course-code');
+    const userCode = Number(code.value);
     const place = document.querySelector('#course-place');
     if (name.value.length === 0 || details.value.length === 0){
       document.querySelector('.error').style.display= 'inline-block';
-    } else {
+    } else if(isNaN(userCode)){
+        document.querySelector('.error').style.display= 'none';
+        document.querySelector('.error-code').style.display= 'inline-block';
+      } else {
       document.querySelector('.error').style.display= 'none';
+      document.querySelector('.error-code').style.display= 'none';
       const courseToSave = {
         name: name.value,
-        code: code.value,
+        code: userCode,
         place: place.value,
         details: details.value
       }
-
-      console.log(courseToSave);
       saveCourse(courseToSave);
       name.value = '';
       details.value = '';

@@ -98,4 +98,4 @@ const deleteCourse = async (event) => {
 	event.preventDefault();
 };   
 
-deleteButton.addEventListener("click", deleteCourse);
+// deleteButton.addEventListener("click", deleteCourse);

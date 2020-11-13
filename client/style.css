@@ -198,7 +198,7 @@ textarea{
   padding-top: 40px;
 }
 
-.error{
+.error, .error-code{
   display: none;
   color: #ff6961;
   font-size: 18px;
