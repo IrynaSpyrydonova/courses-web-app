@@ -3,10 +3,12 @@
 const fs = require('fs');
 const path = require('path');
 const Joi = require('joi');
+const tv4 = require('tv4');
 
 const config = require('../config');
 const DATA_DIR = path.join(__dirname, '..', 'data', 'courses.json');
 
+const COURSES_SCHEMA = require('../data/courses-schema.json');
 
 const controllers = {
   hello: (req, res) => {
@@ -25,21 +27,31 @@ const controllers = {
 
   saveCourse: (req, res)=>{
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
-      console.log(data);
       if (err)  return res.status(500).send(err.message);
       let courses = JSON.parse(data);
-      console.log(courses);
-      const course = {
-        id: courses.nextId,
-        name: req.body.name,
-        code: req.body.code,
-        place: req.body.place,
-        details:req.body.details
-    };
 
+      const newCourse = req.body;
+      newCourse.id = courses.nextId;
       courses.nextId++;
-      courses.courses.push(course);
-      res.send(course);
+
+      const isValid = tv4.validate(newCourse, COURSES_SCHEMA)
+      console.log(isValid);
+
+      if (!isValid) {
+        const error = tv4.error
+        console.error(error)
+
+        res.status(400).json({
+          error: {
+            message: error.message,
+            dataPath: error.dataPath
+          }
+        })
+        return
+      }
+
+      courses.courses.push(newCourse);
+      res.send(newCourse);
       let newData = JSON.stringify(courses, null, 2);
       
       fs.writeFile(DATA_DIR, newData, (err) => {
