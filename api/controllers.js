@@ -10,11 +10,6 @@ const DATA_DIR = path.join(__dirname, '..', 'data', 'courses.json');
 
 const COURSES_SCHEMA = require('../data/courses-schema.json');
 
-function validateCourse(course){
-  const schema = Joi.object({ name: Joi.string() .min(3) .required() });
-  return schema.validate(course);
-}
-
 const controllers = {
   hello: (req, res) => {
     res.json({ api: 'courses!' });
@@ -70,16 +65,16 @@ const controllers = {
   //PUT METHOD
 editFile: (req, res, next) => {
   console.log('edit files')
-    const { error } = validateCourse(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
-
     fs.readFile(DATA_DIR, 'utf-8', (err, data) => {
         if (err) return res.status(500).send(err.message);
+        
         let courses = JSON.parse(data);
         const course =courses.courses.find(c => c.id === parseInt(req.params.id));
-
         if(!course) res.status(404).send('The course with the given ID was not found!');
         course.name=req.body.name;
+        course.code= req.body.code,
+        course.place= req.body.place,
+        course.details=req.body.details
         res.send(course);
         
         let updatedData = JSON.stringify(courses, null, 2);
