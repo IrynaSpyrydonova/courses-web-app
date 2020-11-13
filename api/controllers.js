@@ -107,9 +107,45 @@ listFiles:(req,res , next) =>{
 
   res.send(JSON.parse(data));
 },
+//Delete Course Method 
+
+deleteCourse: (req, res, next) => {
+
+  fs.readFile(DATA_DIR, "UTF-8", (err, data) => {
+    if (err) {
+      console.error("Error: ", err);
+      return;
+    }
+    let parsedData = JSON.parse(data);
+    console.log("read from file: ", parsedData);
+    
+    let specificCourse = parsedData.find(function (c) {
+      console.log(`c.id is: ${c.id}, req.params.id is: ${req.params.id}`);
+      return c.id === parseInt(req.params.id);
+    });
+
+    if (!Course) {
+      console.log("incorrect id ");
+      return res.status(404).send("The course with the given ID was not found!");
+    }
+
+    const index = parsedData.indexOf(Course);
+
+    parsedData.splice(index, 1);
+    let toWrite = JSON.stringify(parsedData, null, " ");
+
+    fs.writeFile(DATA_DIR, toWrite, "UTF-8", (err) => {
+      if (err) {
+        console.log("changes not saved");
+        process.exit();
+      }
+
+      console.log("changes saved");
+    });
+    res.send(Course);
+  });
+},
 };
-
-
 
 
 module.exports = controllers;
