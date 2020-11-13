@@ -37,7 +37,7 @@ const saveCourse = (course) => {
     document.getElementById("course-details").value=course.details
     document.getElementById("save-button").innerHTML="Save changes"
     
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({top: 0, behavior: 'smooth'});
   },
 
   modifyCourse: async (course) => {
@@ -97,4 +97,3 @@ const deleteCourse = async (course) => {
   }
   
 };   
-
