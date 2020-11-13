@@ -89,7 +89,7 @@ const renderCourseList = (coursesArr) => {
         editButton.classList.add('icon');
         editButton.innerHTML = `<i class="fas fa-edit"></i>`;
         iconsDiv.appendChild(editButton);
-        editButton.onclick = () => handlers.modifyCourse(course);
+        editButton.onclick = () => handlers.modifyHandler(course);
 
         const li = document.createElement('li');
         li.appendChild(loadButton);

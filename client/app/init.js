@@ -23,8 +23,15 @@ document.getElementById('save-button')
         details: details.value
       }
 
-      console.log(courseToSave);
-      saveCourse(courseToSave);
+      if(document.getElementById("save-button").innerHTML==="Save changes")
+      {
+        courseToSave.id=document.getElementById("course-name").getAttribute("dataID")
+        handlers.modifyCourse(courseToSave);
+      } else
+        {
+          saveCourse(courseToSave)
+        };
+        
       name.value = '';
       details.value = '';
       code.value ='';

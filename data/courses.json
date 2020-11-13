@@ -1,29 +1,47 @@
 {
-  "nextId": 14,
+  "nextId": 17,
   "courses": [
     {
       "id": 1,
-      "name": "Java"
+      "name": "Java",
+      "code": "java202",
+      "place": "lab",
+      "details": "undefined"
     },
     {
       "id": 2,
-      "name": "world"
+      "name": "hello world",
+      "code": "math303",
+      "place": "",
+      "details": "course definition"
     },
     {
       "id": 3,
-      "name": "New Java Script"
+      "name": "New Java Script",
+      "code": "ED105",
+      "place": "",
+      "details": "this is a nice course"
     },
     {
       "id": 4,
-      "name": "HTML3"
+      "name": "HTML4",
+      "code": "HTML303",
+      "place": "",
+      "details": "Basic html content"
     },
     {
       "id": 5,
-      "name": "edited course"
+      "name": "CSS",
+      "code": "CSS101",
+      "place": "computer lab e2",
+      "details": "basic css content"
     },
     {
       "id": 6,
-      "name": "HTML"
+      "name": "C++",
+      "code": "COMP203",
+      "place": "comp lab 3",
+      "details": "fundamentals of programming "
     },
     {
       "id": 7,
@@ -31,10 +49,8 @@
     },
     {
       "id": 8,
-      "name": "Ruby",
-      "code": "",
-      "place": "",
-      "details": "Best course to improve your skills"
+      "name": "edited",
+      "code": "ed104"
     },
     {
       "id": 9,
@@ -70,6 +86,27 @@
       "code": "R4567",
       "place": "KYIV",
       "details": "Lets code, like professional programmers "
+    },
+    {
+      "id": 14,
+      "name": "MATH",
+      "code": "151",
+      "place": "A150",
+      "details": "Calculus"
+    },
+    {
+      "id": 15,
+      "name": "new course",
+      "code": "101",
+      "place": "computer room",
+      "details": "this is a new course"
+    },
+    {
+      "id": 16,
+      "name": "Web apps",
+      "code": "WA202",
+      "place": "HYF",
+      "details": "Back-end"
     }
   ]
 }
