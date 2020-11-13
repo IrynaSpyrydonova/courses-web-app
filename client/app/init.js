@@ -40,11 +40,4 @@ document.getElementById('save-button')
         behavior: 'smooth'
       });
     }
-  })
-  
-
-
-
-
- 
-
+  });

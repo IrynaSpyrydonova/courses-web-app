@@ -119,17 +119,17 @@ deleteCourse: (req, res, next) => {
     let parsedData = JSON.parse(data);
     console.log("read from file: ", parsedData);
     
-    let specificCourse = parsedData.find(function (c) {
+    let course = parsedData.find(function (c) {
       console.log(`c.id is: ${c.id}, req.params.id is: ${req.params.id}`);
       return c.id === parseInt(req.params.id);
     });
 
-    if (!Course) {
+    if (!course) {
       console.log("incorrect id ");
       return res.status(404).send("The course with the given ID was not found!");
     }
 
-    const index = parsedData.indexOf(Course);
+    const index = parsedData.indexOf(course);
 
     parsedData.splice(index, 1);
     let toWrite = JSON.stringify(parsedData, null, " ");
@@ -142,7 +142,7 @@ deleteCourse: (req, res, next) => {
 
       console.log("changes saved");
     });
-    res.send(Course);
+    res.send(course);
   });
 },
 };
