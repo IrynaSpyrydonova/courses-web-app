@@ -75,6 +75,23 @@ editFile: (req, res, next) => {
         course.code= req.body.code,
         course.place= req.body.place,
         course.details=req.body.details
+
+        const isValid = tv4.validate(course, COURSES_SCHEMA)
+        console.log(isValid);
+  
+        if (!isValid) {
+          const error = tv4.error
+          console.error(error)
+  
+          res.status(400).json({
+            error: {
+              message: error.message,
+              dataPath: error.dataPath
+            }
+          })
+          return
+        }
+  
         res.send(course);
         
         let updatedData = JSON.stringify(courses, null, 2);
