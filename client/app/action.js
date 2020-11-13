@@ -79,8 +79,8 @@ const saveCourse = (course) => {
   }
 }
 }
-const deleteCourse = async (event) => {
-	const id = deleteID.value;
+const deleteCourse = async (course) => {
+	const id = course.id;
 	const res = await fetch(`/api/courses/${id}`, {
 		method: "DELETE",
 		headers: {
@@ -91,17 +91,9 @@ const deleteCourse = async (event) => {
 		alert(`Something went wrong:`);
 		console.log("Error from put: ", res);
 	} else {
-		const data = await res.json();
-		console.log("Deleted course: ", data);
-		let courseN = data.name;
-		let courseID = data.id;
-		alert(
-			`Your change has been saved.\nThe following course deleted:\n Course Name: ${courseN} \n Course ID: ${courseID}`
-		);
-	}
-	deleteID.value = "";
-	event.preventDefault();
+		const resNew = await fetch("/api/courses");
+      const dataNew = await resNew.json();
+      renderCourseList(dataNew);
+  }
+  
 };   
-
-
-
